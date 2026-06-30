@@ -1,0 +1,344 @@
+/* Typewriter Cursor Blinking */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.cursor-blink {
+    animation: blink 0.8s infinite;
+    color: var(--color-pink-rose);
+    font-weight: 300;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+/* Jar Shaking Animation */
+@keyframes shake {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    15% {
+        transform: translate(-3px, 1px) rotate(-4deg);
+    }
+
+    35% {
+        transform: translate(3px, -1px) rotate(4deg);
+    }
+
+    55% {
+        transform: translate(-3px, -1px) rotate(-3deg);
+    }
+
+    75% {
+        transform: translate(2px, 1px) rotate(2deg);
+    }
+
+    90% {
+        transform: translate(-1px, -1px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.is-shaking {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Floating Elements (Subtle float) */
+@keyframes float-subtle {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.float-subtle {
+    animation: float-subtle 5s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+}
+
+/* Pulse Glow (For lights & interactive items) */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(251, 211, 224, 0.4), 0 0 5px rgba(251, 211, 224, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(251, 211, 224, 0.7), 0 0 12px rgba(251, 211, 224, 0.4);
+    }
+}
+
+.glow-pulse {
+    animation: glow-pulse 3s infinite ease-in-out;
+}
+
+/* Click FX Particle styles */
+.click-fx {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 1.4rem;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
+
+/* Background floating petals & particles basic specs */
+.petals-field,
+.particles-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    mix-blend-mode: multiply;
+}
+
+.petals-field {
+    z-index: 10;
+}
+
+.particles-field {
+    z-index: 5;
+    mix-blend-mode: screen;
+}
+
+.petal {
+    position: absolute;
+    top: -10vh;
+    border-radius: 90% 0 90% 50% / 90% 0 90% 50%;
+    opacity: 0.75;
+    transform-origin: center;
+    box-shadow: inset 1px -1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.particle {
+    position: absolute;
+    background: var(--color-white);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-white);
+    opacity: 0.4;
+}
+
+/* Scroll hint mouse bounce */
+@keyframes scroll-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(7px);
+        opacity: 1;
+    }
+}
+
+.scroll-bounce {
+    animation: scroll-bounce 2s infinite ease-in-out;
+}
+
+/* Sparkles on seal */
+@keyframes sparkler {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.15) rotate(45deg);
+        opacity: 1;
+        filter: drop-shadow(0 0 5px var(--color-gold));
+    }
+}
+
+.sparkle-slow {
+    animation: sparkler 4s infinite ease-in-out;
+}
+
+/* Star Twinkle Keyframe */
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+.star {
+    position: absolute;
+    background: var(--color-white);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: twinkle 3s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.star-interactive {
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 2px var(--color-white));
+}
+
+.star-interactive:hover {
+    transform: scale(2.5) !important;
+    opacity: 1 !important;
+    background: var(--color-gold) !important;
+    filter: drop-shadow(0 0 8px var(--color-gold));
+    z-index: 200;
+}
+
+.star-sparkle {
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--color-gold);
+    pointer-events: none;
+    z-index: 150;
+    line-height: 1;
+}
+
+/* Balloon Float Animation */
+@keyframes balloonFloat {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(50vh) rotate(var(--sway, 4deg));
+    }
+
+    100% {
+        transform: translateY(-20vh) rotate(0deg);
+    }
+}
+
+.balloon {
+    position: absolute;
+    bottom: -20vh;
+    cursor: pointer;
+    z-index: 30;
+    transform-origin: bottom center;
+    transition: transform 0.2s ease-out;
+}
+
+.balloon:hover {
+    filter: brightness(1.05) drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes balloonSqueeze {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15, 0.85);
+    }
+
+    100% {
+        transform: scale(0.9, 1.15);
+    }
+}
+
+.balloon-pop-trigger {
+    animation: balloonSqueeze 0.35s ease-out forwards;
+}
+
+/* Confetti Sparkles fall */
+.confetti-particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 50;
+    border-radius: 50%;
+}
+
+/* Garden wind sway */
+@keyframes wind-sway {
+
+    0%,
+    100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+/* Butterfly flutter */
+@keyframes flutter {
+    0% {
+        transform: translateY(0) rotate(-5deg) scale(1);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(5deg) scale(1.05);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-5deg) scale(1);
+    }
+}
+
+/* Heart glow pulse */
+@keyframes heart-glow {
+    0% {
+        box-shadow: 0 0 20px rgba(244, 143, 177, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(244, 143, 177, 0.6), 0 0 80px rgba(233, 30, 99, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(244, 143, 177, 0.3);
+    }
+}

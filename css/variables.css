@@ -1,0 +1,50 @@
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-cream: #fbf8f3;
+  --color-cream-deep: #f5eee2;
+  --color-pink-soft: #fbd3e0;
+  --color-pink-rose: #f09cb8;
+  --color-pink-accent: #e37b9d;
+  --color-lavender-soft: #e9e4f5;
+  --color-lavender-dark: #b8acd4;
+  --color-peach-soft: #fde4d8;
+  --color-peach-dark: #f0b497;
+  --color-gold: #cda45e;
+  --color-gold-hover: #b58d47;
+  --color-gold-glow: rgba(205, 164, 94, 0.35);
+  
+  /* Text colors */
+  --color-text-dark: #4a3b43;
+  --color-text-muted: #72626b;
+  --color-text-light: #fbf8f3;
+
+  /* Fonts */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-accent: "Great Vibes", cursive;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(74, 59, 67, 0.05);
+  --shadow-md: 0 8px 24px rgba(74, 59, 67, 0.08);
+  --shadow-lg: 0 16px 40px rgba(74, 59, 67, 0.12);
+  --shadow-gold: 0 8px 30px rgba(205, 164, 94, 0.2);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-round: 50%;
+
+  /* Transitions */
+  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-medium: 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-slow: 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Layout spacing */
+  --spacing-container: 1200px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}

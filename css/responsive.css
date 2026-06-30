@@ -1,0 +1,177 @@
+/* ===========================================================
+   RESPONSIVE DESIGN SYSTEM
+   =========================================================== */
+
+/* Tablet viewports */
+@media (max-width: 992px) {
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox-arrow {
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Mobile viewports */
+@media (max-width: 768px) {
+
+    /* Cursor: restore standard cursor */
+    .cursor-dot,
+    .cursor-glow {
+        display: none !important;
+    }
+
+    body,
+    a,
+    button,
+    [role="button"],
+    .polaroid,
+    .letter-closed,
+    .jar,
+    .letter-seal-open {
+        cursor: auto !important;
+    }
+
+    /* Spacing */
+    section {
+        padding: 4rem 1.25rem;
+    }
+
+    .glass-panel {
+        padding: 2.2rem 1.5rem !important;
+        border-radius: var(--radius-md);
+    }
+
+    /* Hero Section */
+    .hero-card {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .hero-title span.script-span {
+        font-size: 3.5rem;
+    }
+
+    /* Letter Section */
+    .letter-paper {
+        padding: 2.5rem 1.5rem;
+        min-height: auto;
+    }
+
+    .paper-header {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .typewriter-content {
+        font-size: 1.05rem;
+        line-height: 2rem;
+    }
+
+    .paper-footer {
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+
+    .letter-closed {
+        height: 320px;
+    }
+
+    /* Mobile Timeline (Shift connector and cards leftwards) */
+    #timelineLine {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-card {
+        width: 100%;
+    }
+
+    .timeline-card.left,
+    .timeline-card.right {
+        justify-content: flex-start;
+    }
+
+    .tl-card-inner {
+        width: calc(100% - 40px);
+        margin-left: 40px;
+        padding: 1.25rem;
+    }
+
+    .tl-dot {
+        left: 20px;
+        transform: translateX(-50%);
+    }
+
+    /* Gallery Section */
+    .polaroid-field {
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .polaroid {
+        padding: 0.8rem 0.8rem 2.2rem;
+    }
+
+    .polaroid-caption {
+        font-size: 1.4rem;
+        margin-top: 0.8rem;
+    }
+
+    /* Lightbox Mobile Adjustments */
+    .lightbox-wrapper {
+        width: 95%;
+        padding: 0.8rem 0.8rem 2.5rem;
+    }
+
+    .lightbox-close {
+        top: 5px;
+        right: 5px;
+        color: var(--color-white);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        background: rgba(74, 59, 67, 0.4);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.1rem;
+        z-index: 100;
+    }
+
+    .lightbox-caption {
+        font-size: 1.7rem;
+        margin-top: 1rem;
+    }
+
+    .lightbox-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .lightbox-prev {
+        left: 15px;
+    }
+
+    .lightbox-next {
+        right: 15px;
+    }
+
+    /* Jar Section */
+    .jar-tag {
+        right: -2rem;
+        top: 10px;
+    }
+
+    .note-popup {
+        padding: 1.25rem;
+    }
+}

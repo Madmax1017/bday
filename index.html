@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love</title>
+  <meta name="description"
+    content="A dreamy and romantic birthday chapter dedicated to you, capturing our sweet memories and reason notes.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- Custom Glowing Cursor -->
+  <div id="cursorDot" class="cursor-dot"></div>
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <!-- Background Petals and Glow Particles Fields -->
+  <div id="petalsField" class="petals-field"></div>
+  <div id="particlesField" class="particles-field"></div>
+
+  <!-- Background Audio Player (Source is linked dynamically or can play local/silent placeholder for now) -->
+  <audio id="bgMusic" loop src="assets/music/bg.mp3"></audio>
+
+  <!-- ==========================================
+       1. LOADER SECTION
+       ========================================== -->
+  <section id="loader">
+    <div class="loader-content">
+      <div class="loader-heart">&hearts;</div>
+      <h2 class="loader-text">Loading Memories</h2>
+      <div class="loader-bar"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       2. HERO SECTION
+       ========================================== -->
+  <section id="hero">
+    <div class="hero-card glass-panel float-subtle">
+      <div class="hero-flower-top">&#10084;</div>
+      <p class="eyebrow">For my favorite person</p>
+      <h1 class="hero-title">
+        <span>Happy Birthday,</span>
+        <span class="script-span">My Love</span>
+      </h1>
+      <p class="hero-subtitle">Every day with you is a page from a story I never want to end. This is a small chapter
+        dedicated entirely to you.</p>
+      <button id="beginBtn" class="begin-btn">Begin Journey</button>
+    </div>
+
+    <div class="scroll-hint">
+      <span class="scroll-desc">Scroll</span>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel scroll-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. LETTER SECTION
+       ========================================== -->
+  <section id="letter">
+    <div class="letter-wrap">
+      <!-- Closed Envelope -->
+      <div id="letterClosed" class="letter-closed">
+        <div class="envelope-lines"></div>
+        <div class="envelope-flap"></div>
+        <div class="wax-seal"></div>
+        <h2 class="envelope-label">For You</h2>
+        <p class="envelope-instruction">Click seal to open</p>
+      </div>
+
+      <!-- Opened Paper -->
+      <div id="letterPaper" class="letter-paper">
+        <button id="letterSealOpen" class="letter-seal-open" aria-label="Close Letter">&times;</button>
+        <div class="paper-header">Dear One,</div>
+        <div id="typewriterText" class="typewriter-content"></div>
+        <div class="paper-footer">With love, Always</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. TIMELINE SECTION
+       ========================================== -->
+  <section id="timeline">
+    <div class="timeline-header">
+      <p class="section-subtitle">our story</p>
+      <h2 class="section-title">The Sweet Chapters</h2>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div class="timeline-wrap">
+      <!-- Scroll Connector Path -->
+      <div id="timelineLine">
+        <svg width="10" height="100%" viewBox="0 0 10 1000" fill="none" preserveAspectRatio="none">
+          <line x1="5" y1="0" x2="5" y2="1000" stroke="#f09cb8" stroke-width="2" />
+        </svg>
+      </div>
+
+      <!-- Populated by timeline.js -->
+      <div id="timelineTrack"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. GALLERY SECTION
+       ========================================== -->
+  <section id="gallery">
+    <div class="gallery-header">
+      <p class="section-subtitle">sweet memories</p>
+      <h2 class="section-title">Moments Captured</h2>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <!-- Polaroid gallery container -->
+    <div id="polaroidField" class="polaroid-field"></div>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-blur"></div>
+      <div class="lightbox-wrapper">
+        <button id="lightboxClose" class="lightbox-close" aria-label="Close Gallery">&times;</button>
+        <button id="lightboxPrev" class="lightbox-arrow lightbox-prev" aria-label="Previous">&lsaquo;</button>
+        <button id="lightboxNext" class="lightbox-arrow lightbox-next" aria-label="Next">&rsaquo;</button>
+
+        <img id="lightboxImg" src="" alt="Enlarged memory" />
+        <p id="lightboxCaption" class="lightbox-caption"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. JAR SECTION
+       ========================================== -->
+  <section id="jar">
+    <div class="jar-header">
+      <p class="section-subtitle">little notes</p>
+      <h2 class="section-title">Notes of Love</h2>
+      <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.2rem; text-align: center;">Click the
+        jar to read a floating note</p>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div class="jar-wrap">
+      <div id="jarContainer" class="jar-container glow-pulse jar">
+        <div class="jar-neck"></div>
+        <div class="jar-cork"></div>
+        <div class="jar-glow-lights"></div>
+        <!-- Notes container inside jar -->
+        <div id="jarNotes" class="jar-notes-field"></div>
+      </div>
+
+      <!-- Decorative Tag -->
+      <div class="jar-tag">
+        <p class="jar-tag-text">For You</p>
+        <div class="jar-tag-heart">&hearts;</div>
+      </div>
+
+      <!-- Interactive Note Popup (Rendered in center overlay) -->
+      <div id="notePopup" class="note-popup glass-panel">
+        <button id="noteClose" class="note-popup-close" aria-label="Close Note">Close</button>
+        <p id="noteText" class="note-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. STARRY NIGHT SECTION
+       ========================================== -->
+  <section id="stars">
+    <div class="stars-header">
+      <p class="section-subtitle">look up</p>
+      <h2 class="section-title">A Sky Full of Wishes</h2>
+      <p>Interactive stars are scattered in the night sky. Hover over them to see them glow, and click them to reveal
+        secrets.</p>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div id="starsField" class="stars-field"></div>
+
+    <!-- Floating compliment card -->
+    <div id="starCard" class="star-card">
+      <button id="starCardClose" class="star-card-close" aria-label="Close Note">Close</button>
+      <h4 id="starCardHeader" class="star-card-header"></h4>
+      <p id="starCardText" class="star-card-text"></p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       8. BALLOON SURPRISE SECTION
+       ========================================== -->
+  <section id="balloons">
+    <div class="balloons-header">
+      <p class="section-subtitle">celebration</p>
+      <h2 class="section-title">Pop the Balloons</h2>
+      <p>Grab a floating balloon and click on it to pop it and release a sweet surprise wish.</p>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div id="balloonsField" class="balloons-field"></div>
+
+    <!-- Revealed wish card -->
+    <div id="balloonCard" class="balloon-content-card glass-panel">
+      <button id="balloonCardClose" class="balloon-card-close" aria-label="Close Wish">Close</button>
+      <h4 id="balloonCardHeader" class="balloon-card-header"></h4>
+      <p id="balloonCardText" class="balloon-card-text"></p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       9. BLOOMING GARDEN SECTION
+       ========================================== -->
+  <section id="garden">
+    <div class="garden-header">
+      <p class="section-subtitle">watch it grow</p>
+      <h2 class="section-title">Love In Bloom</h2>
+      <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.2rem;">Click the flower to watch love
+        blossom</p>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div id="gardenField" class="garden-field"></div>
+  </section>
+
+  <!-- ==========================================
+       10. INTERACTIVE HEART SECTION
+       ========================================== -->
+  <section id="heart">
+    <div class="heart-header">
+      <p class="section-subtitle">one last thing</p>
+      <h2 class="section-title">Two Halves, One Heart</h2>
+      <p class="heart-instruction">Drag the two halves together to complete the heart</p>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div id="heartHalvesWrap" class="heart-halves-wrap">
+      <div id="heartLeft" class="heart-half heart-half-left"></div>
+      <div id="heartRight" class="heart-half heart-half-right"></div>
+      <div id="heartGlow" class="heart-glow"></div>
+    </div>
+
+    <!-- Completion message -->
+    <div id="heartCompletion" class="heart-completion glass-panel">
+      <p class="heart-completion-text"><span>You complete my heart</span> ❤️</p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       11. BIRTHDAY CAKE SECTION
+       ========================================== -->
+  <section id="cake" class="cake-section">
+    <div class="cake-header">
+      <p class="section-subtitle">make a wish</p>
+      <h2 class="section-title">Blow Out the Candle</h2>
+      <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.2rem;">Click the candle to make your
+        wish</p>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div class="cake-wrap">
+      <div class="cake-box">
+        <div class="cake-tier">
+          <div class="cake-frosting"></div>
+        </div>
+        <div id="candle" class="candle">
+          <div class="flame glow-pulse"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       12. GIFT BOX SECTION
+       ========================================== -->
+  <section id="giftbox" class="giftbox-section">
+    <div class="giftbox-header">
+      <p class="section-subtitle">a little surprise</p>
+      <h2 class="section-title">For You</h2>
+      <div class="gold-accent-line"></div>
+    </div>
+
+    <div class="gift-wrap">
+      <div id="gift" class="gift float-subtle">
+        <div class="gift-lid">
+          <div class="ribbon-vertical"></div>
+          <div class="gift-bow">
+            <div class="bow-left"></div>
+            <div class="bow-right"></div>
+            <div class="bow-center"></div>
+          </div>
+        </div>
+        <div class="gift-base">
+          <div class="ribbon-horizontal"></div>
+          <div class="ribbon-vertical-base"></div>
+        </div>
+        <div class="gift-glow"></div>
+        <!-- Surprises escaping container -->
+        <div id="giftSurprises" class="gift-surprises"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       13. FINAL LETTER SECTION
+       ========================================== -->
+  <section id="finalLetter" class="final-letter-section">
+    <!-- Starry dreamy background overlays -->
+    <div class="dreamy-sky-bg"></div>
+    <div id="lanternsField" class="lanterns-field"></div>
+    <div id="driftingPhotosField" class="drifting-photos-field"></div>
+
+    <div class="final-letter-content">
+      <h1 class="final-heading">Happy Birthday, My Love <span class="pulse-emoji">❤️</span></h1>
+
+      <div class="handwritten-letter-container">
+        <div class="letter-placeholder">
+          <!-- Text to be typed out -->
+          <p id="finalTypedText"></p>
+        </div>
+        <div class="signature">
+          <p class="signature-text fade-in-element">Forever yours ❤️</p>
+          <div class="infinite-heart fade-in-element"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CDNs Integration
+       ========================================== -->
+  <!-- GSAP Core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- ==========================================
+       Local Modules Integration
+       ========================================== -->
+  <!-- Always start with core data storage -->
+  <script src="data.js"></script>
+  <script src="smoothScroll.js"></script>
+  <script src="background.js"></script>
+  <script src="cursor.js"></script>
+  <script src="loader.js"></script>
+  <script src="hero.js"></script>
+  <script src="letter.js"></script>
+  <script src="timeline.js"></script>
+  <script src="gallery.js"></script>
+  <script src="jar.js"></script>
+  <script src="stars.js"></script>
+  <script src="balloons.js"></script>
+  <script src="garden.js"></script>
+  <script src="heart.js"></script>
+  <script src="cake.js"></script>
+  <script src="gift.js"></script>
+  <script src="letterFinal.js"></script>
+
+  <!-- Initialization & Coordination script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize Lenis smooth scroll
+      SmoothScroll.init();
+
+      // 2. Initialize cursor and ambient background petals/particles
+      Background.init();
+      Cursor.init();
+
+      // 3. Initialize visual modules
+      Letter.init();
+      TimelineModule.init();
+      Gallery.init();
+
+      // Fix: Since jar.js binds document.getElementById('jar'), let's check
+      // if the section has that ID. It does! But we set pointer-events: none on
+      // the section itself, and pointer-events: auto on the visual .jar-container.
+      // So clicking the jar container bubbles up and hits the section's event listener.
+      Jar.init();
+
+      // 4. Initialize new magical modules
+      Stars.init();
+      Balloons.init();
+      Garden.init();
+      Heart.init();
+      Cake.init();
+      GiftBox.init();
+      LetterFinal.init();
+
+      // 5. Initialize loader. When load is complete, play hero introduction
+      Loader.init(() => {
+        Hero.init();
+      });
+    });
+  </script>
+</body>
+
+</html>
