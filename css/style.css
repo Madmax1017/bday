@@ -1265,6 +1265,7 @@ body.cursor-hover .cursor-glow {
     text-align: center;
     margin-bottom: 3rem;
     z-index: 10;
+    pointer-events: none;
 }
 
 .garden-header .section-title {
@@ -1281,7 +1282,7 @@ body.cursor-hover .cursor-glow {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 5;
+    z-index: 15;
 }
 
 /* Flower structure */
